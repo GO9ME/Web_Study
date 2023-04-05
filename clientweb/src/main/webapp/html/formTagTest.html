@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<form action="/clientweb/html/lounge.html" method="get">
+			<h2>1.텍스를 입력 받는 양식 태그</h2>
+			ID : <input type="text" name="id" size="100" value="패스워드는 수정할 수 없다" maxlength="10" ><br>	
+			PW : <input type="password" name="pass" disabled="disabled"><br>
+			정보 : <br>
+			<textarea rows="5" cols="30" name="info"></textarea>
+			<h2>3. 선택관련 양식 태그 - 체크박스</h2>
+			<fieldset>
+				<legend>좋아하는 과목</legend>
+				<input type="checkbox" name="subject1" value="java">자바
+				<input type="checkbox" name="subject1" value="jdbc">jdbc
+				<input type="checkbox" name="subject1" value="HTML">HTML
+				<input type="checkbox" name="subject1" value="javascript">javascript
+				<input type="checkbox" name="subject1" value="spring">spring
+			</fieldset>
+			
+			<h2>3. 선택관련 양식 태그 - 라디오 버튼</h2>
+			<input type="radio" name="subject2" value="java">자바
+			<input type="radio" name="subject2" value="jdbc">jdbc
+			<input type="radio" name="subject2" value="HTML">HTML
+			<input type="radio" name="subject2" value="javascript">javascript
+			<input type="radio" name="subject2" value="spring">spring
+			
+			<h2>3. 선택관련 양식 태그 - 목록</h2>
+			<select name="subject3" size="4" multiple="multiple">
+				<option value="java">자바</option>
+				<option value="jdbc">jdbc</option>
+				<option value="HTML">HTML</option>
+				<option value="javascript">javascript</option>
+				<option value="spring">spring</option>
+			</select>
+			
+			<h2>기타 양식 태그</h2>
+			검색 : <input type="search">
+			전화번호 : <input type="tel"><br>
+			수량1 : <input type="number" max="20" min="10" maxlength="5">
+			수량2 : <input type="range" step="10"><br>
+			날짜 : <input type="date">
+			날짜 : <input type="month">
+			날짜 : <input type="week">
+			<br>
+			파일 업로드 : <input type="file">
+			<input type="hidden" name="hidden" value="secureVal">
+			
+			<h2>2. 버튼관련 양식 태그</h2>
+			<input type="button" value="자바스크립트 명령문을 실행할 목적으로 사용하는 버튼" onclick="alert('환영합니다')">
+			<input type="reset" value="데이터지우기(취소)">
+			<input type="submit" value="서버로 전송하기">
+			<!-- Submit 버튼 누른것과 동일하게 동작 -->
+			<input type="image" src="/clientweb/images/daumlogo.png">
+		</form>
+	</body>
+</html>
