@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#box {
+				width : 100px;
+				height : 100px;
+				background: orange;
+				transition-duration:2s;
+			}
+			#box:hover{
+				width : 200px;
+				background: blue;
+			}
+			#box:active{
+				width : 300px;
+				background: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			기본 서식 
+			너비 : 100 
+			높이 : 100
+			배경색 : orange
+			- 	마우스 포인터를 올려 놓으면 
+				너비 : 200
+				배경색 : blue로 변경 되도록 설정
+			-   마우스로 클릭하고 있는 상태면
+				너비 : 300
+				배경색 : aqua로 변경
+		-->
+		<div id="box">
+			
+		</div>		
+	</body>
+</html>
