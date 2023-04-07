@@ -4,6 +4,37 @@
 	<meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+	#container{
+		border : solid red 1px;
+		width : 80%;
+		background-color: yellow;
+		/* padding : 100px;  */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	body{
+		font-family:HY견고딕,궁서체;
+	}
+	.rect{
+		border : solid blue 1px;
+		width : 400px;
+		height : 400px;
+		margin : 10px;
+	}
+	.rect2{
+		border : solid blue 1px;
+		width : 400px;
+		height : 400px;
+	}
+	img{
+		width : 300px;
+		height : 300px;
+	}
+	#mybts{
+		border-radius: 50%;
+	}
+	
 	 p.none {border-style:none;}
     p.dotted {border-style:dotted;}
     p.dashed {border-style:dashed;}
@@ -17,13 +48,17 @@
 </style>
 </head>
 <body>
-	<div class="rect">
-		지금은 CSS연습 중입니다.
+	<div id="container">
+		<div class="rect">
+			<h1>지금은 CSS연습 중입니다.</h1>
+			<img alt="" src="../images/jang1.jpg">
+		</div>
+		<div class="rect2">
+			<h1>지금은 CSS연습 중입니다.</h1>
+			<img alt="" src="../images/jang1.jpg">
+		</div>
 	</div>
-	<div class="rect2">
-		지금은 CSS연습 중입니다.
-	</div>
-	
+		
 	<p class="none">No border.</p>
 	<p class="dotted">A dotted border.</p>
 	<p class="dashed">A dashed border.</p>
@@ -34,6 +69,7 @@
 	<p class="inset">An inset border.</p>
 	<p class="outset">An outset border.</p>
 	<p class="hidden">A hidden border.</p>
+
 </body>
 </html>
 

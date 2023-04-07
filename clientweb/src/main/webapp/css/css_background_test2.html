@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		.box{
+			width : 200px;
+			height : 200px;
+			background-color: orange;
+			border : solid 1px blue;
+		}
+		.box:first-child {
+			background-color: blue;
+			border-width: 5px;
+			padding : 30px;
+			box-sizing: content-box;
+		}
+		</style>
+	</head>
+	<body>
+	<p class="box">box-sizing(border-box)</p>
+	<p class="box">box-sizing(content-box기본값)</p>
+	</body>
+</html>
