@@ -1,0 +1,49 @@
+@charset "UTF-8";
+body{
+	font-size: 9pt;
+}
+#outer {
+	text-align: justify;
+}
+#outer #outer1 h1{
+	color: #399195;
+}
+#outer #outer1 #garden{
+	background-image: url("../../images/background.gif");
+	background-repeat: no-repeat;
+	background-color: #a6cdcd;
+	border: solid white 1px;
+	padding: 20px;
+	margin-left: 20px;
+	font-style: italic;
+	font-family: 궁서;
+	font-weight: bold;
+	height: 70px;
+	padding-left: 70px;
+}
+#outer #outer1{
+	float: left;
+	width: 80%;
+}
+#outer #outer2{
+	border: solid #399195 2px;
+	width: 15%;
+	float: right;
+	text-align: center;
+}
+#outer #outer2 h3{
+	color: red;
+}
+#menu h2{
+	color: #399195;
+}
+#outer{
+	height: 95%;
+}
+#footer{
+	clear : both;
+	text-align: center;
+	height : auto;
+	
+}
+
