@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,web,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,web,visualstudiocode
 
 ### Eclipse ###
 .metadata
@@ -93,30 +93,38 @@ local.properties
 hs_err_pid*
 replay_pid*
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-# Dump file
-*.stackdump
+# Local History for Visual Studio Code
+.history/
 
-# Folder config file
-[Dd]esktop.ini
+# Built Visual Studio Code Extensions
+*.vsix
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
 
-# Windows Installer files
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
+### Web ###
+*.asp
+*.cer
+*.csr
+*.css
+*.htm
+*.html
+*.js
+*.jsp
+*.php
+*.rss
+*.wasm
+*.wat
+*.xhtml
 
-# Windows shortcuts
-*.lnk
-
-# End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,java,web,visualstudiocode
