@@ -1,9 +1,65 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.container{
+			background-color: aqua;
+		}
+		.container .flowers {
+			display: flex;
+			flex-wrap: wrap;
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 40px 20px;
+		  }
+		.container .flowers .flower {
+			width: 100px;
+			height: 100px;
+			border: solid 3px white;
+			border-radius: 10px;
+			margin: 5px;
+			transform: skewX(-15deg);
+			background-color: white;
+			overflow: hidden;
+			box-sizing: border-box;
+		}
+
+		.container .flowers .flower:hover {
+			background-color: orange;
+			transform: skewX(-15deg) scale(1.5);
+			z-index: 1;
+		  }
+
+		.container .flowers .flower .img {
+			width: 100px;
+			height: 100px;
+			transform: scale(1.3);
+			background-position: center;
+			background-size: 90px;
+			background-repeat: no-repeat;
+		}
+
+		.container .flowers .flower:nth-child(1) .img {background-image: url("../images/flower1.png");}
+		.container .flowers .flower:nth-child(2) .img {background-image: url("../images/flower2.png");}
+		.container .flowers .flower:nth-child(3) .img {background-image: url("../images/flower3.png");}
+		.container .flowers .flower:nth-child(4) .img {background-image: url("../images/flower4.png");}
+		.container .flowers .flower:nth-child(5) .img {background-image: url("../images/flower5.png");}
+		.container .flowers .flower:nth-child(6) .img {background-image: url("../images/flower6.png");}
+		.container .flowers .flower:nth-child(7) .img {background-image: url("../images/flower7.png");}
+		.container .flowers .flower:nth-child(8) .img {background-image: url("../images/flower8.png");}
+		.container .flowers .flower:nth-child(9) .img {background-image: url("../images/flower9.png");}
+		.container .flowers .flower:nth-child(10) .img {background-image: url("../images/flower10.png");}
+		.container .flowers .flower:nth-child(11) .img {background-image: url("../images/flower11.png");}
+		.container .flowers .flower:nth-child(12) .img {background-image: url("../images/flower12.png");}
+		.container .flowers .flower:nth-child(13) .img {background-image: url("../images/flower13.png");}
+		.container .flowers .flower:nth-child(14) .img {background-image: url("../images/flower14.png");}
+		.container .flowers .flower:nth-child(15) .img {background-image: url("../images/flower15.png");}
+	</style>
 </head>
+
 <body>
 	<div class="container">
 		<div class="flowers">
@@ -55,4 +111,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
