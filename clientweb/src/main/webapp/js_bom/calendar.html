@@ -29,32 +29,15 @@
     </style>
     <script type="text/javascript">
         // html 문자열
-        const weekday = ["월", "화", "수", "목", "금", "토", "일"];
+        const weekday = ["일","월", "화", "수", "목", "금", "토"];
 
         //날짜 
         var today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth()+1;
+        const date = today.getDate();
 
-        function calendarMake(date) {
-            var str = "";
-            var year = date.getFullYear();
-            var month = date.getMonth() + 1;
-            var date = date.getDate();
-            var firstDate = date.g
 
-            var header = document.getElementById("header");
-            str += "<h2>" + year + "년" + month + "월" + "</h2>";
-
-            header.innerHTML = str;
-            str = "";
-
-            var table = document.getElementById("calenderSection");
-            str += "<tr>";
-            for (var i = 0; i < weekday.length; i++) {
-                str += "<th>" + weekday[i] + "</th>";
-            }
-            str += "</tr>";
-            table.innerHTML = str;
-        }
 
 
     </script>
@@ -68,7 +51,33 @@
     </div>
     <script type="text/javascript">
         // 출력할 곳 가져오기
-        calendarMake(today);
+        calendarMake(year,month);
+
+
+        function calendarMake(y, m) {
+            var str = "";
+            var lastDate = new Date(y, m, 0);
+            console.log(lastDate.getFullYear());
+            console.log(lastDate.getDate());
+            console.log(lastDate.getDay());
+            var arr = new Array(lastDate.getDate);
+
+            var header = document.getElementById("header");
+            str += "<h2>" + y + "년" + m + "월" + "</h2>";
+
+            header.innerHTML = str;
+            str = "";
+
+            var table = document.getElementById("calenderSection");
+            str += "<tr>";
+            for (var i = 0; i < weekday.length; i++) {
+                str += "<th>" + weekday[i] + "</th>";
+            }
+            str += "</tr>";
+
+            
+            table.innerHTML = str;
+        }
     </script>
 </body>
 
