@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function calc() {
+			// name 속성이 myform1인 for 객체 내부에 정의된 name이 num1인 텍스트 상자에 입력된 값을
+			// 읽어서 num1 변수에 저장
+			var num1 = myform1.num1.value; // value 속성이 getter로 사용
+			console.log(num1);
+			myform1.num3.value = num1 * 1.2 + 1000; // value 속성이 setter로 사용
+		}
+		function calc2() {
+			var num2 = myform1.num2.value; // value 속성이 getter로 사용
+			console.log(num2);
+			myform1.num3.value = num2 * 1.2 + 1000; // value 속성이 setter로 사용
+		}
+		function showdiv() {
+			// num1 텍스트에 입력한 값을 읽어서 div에 출력
+			var numValue = myform1.num1.value;
+			// id가 result 인 html요소를 찾아옴
+			var myDiv = document.getElementById("result");
+			//	찾아온 html요소에 문자열을 추가
+			myDiv.innerHTML = "<h1>안녕하세요 값은 : " + numValue + "입니다.</h1>";
+		}
+		/*
+			body태그 내부에서 정의된 폼3개에서 동일한 작업을 하는 경우
+			함수를 갯수만큼 만들어서 작업하지 앟고 폼내부에서 버튼을 누를때마다 현재작업중인 폼의 정보를 함수의 매개변수로 넘기고 작업
+		*/
+		function run(workingform){
+			var num1 = workingform.num1.value;
+			workingform.num2.value = num1*2;
+			workingform.num3.value = num1*3;
+			workingform.num4.value = num1*4;
+		}
+		
+
+	</script>
+</head>
+
+<body onload="alert('환영합니다')">
+	<!-- 키보드와 폼객체에 관련된 이벤트 -->
+	<form action="" name="myform1">
+		<input type="text" name="num1" onkeyup="calc()" />
+		<input type="text" name="num2" onchange="calc2()" />
+		<input type="text" name="num3" />
+		<input type="text" name="num4" onfocus="showdiv()" />
+		<input type="button" value="전송1" onclick="run(this.form)" />
+	</form>
+	<hr />
+
+	<!-- 키보드와 폼객체에 관련된 이벤트 -->
+	<form action="" name="myform2">
+		<input type="text" name="num1" onkeyup="calc()" />
+		<input type="text" name="num2" onchange="calc2()" />
+		<input type="text" name="num3" />
+		<input type="text" name="num4" onfocus="showdiv()" />
+		<input type="button" value="전송1" onclick="run(this.form)"/>
+	</form>
+
+	<!-- 키보드와 폼객체에 관련된 이벤트 -->
+	<form action="" name="myform3">
+		<input type="text" name="num1" onkeyup="calc()" />
+		<input type="text" name="num2" onchange="calc2()" />
+		<input type="text" name="num3" />
+		<input type="text" name="num4" onfocus="showdiv()" />
+		<input type="button" value="전송1" onclick="run(this.form)"/>
+	</form>
+
+	<!-- 텍스트상자에서 입력한 내용이 웹페이제어 출력되도록 div추가 -->
+	<div id="result" style="color:red; font-weight:bold;"></div>
+</body>
+
+</html>

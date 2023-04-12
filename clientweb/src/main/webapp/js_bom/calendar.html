@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h2 {
+            color: blue;
+            text-align: center;
+        }
+
+        #section {
+            clear: both;
+        }
+
+        table {
+            font-size: 15pt;
+            margin: auto;
+            width: 70%;
+        }
+
+        th {
+            background-color: orange;
+        }
+
+        td {
+            background-color: yellow;
+        }
+    </style>
+    <script type="text/javascript">
+        // html 문자열
+        const weekday = ["월", "화", "수", "목", "금", "토", "일"];
+
+        //날짜 
+        var today = new Date();
+
+        function calendarMake(date) {
+            var str = "";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var date = date.getDate();
+            var firstDate = date.g
+
+            var header = document.getElementById("header");
+            str += "<h2>" + year + "년" + month + "월" + "</h2>";
+
+            header.innerHTML = str;
+            str = "";
+
+            var table = document.getElementById("calenderSection");
+            str += "<tr>";
+            for (var i = 0; i < weekday.length; i++) {
+                str += "<th>" + weekday[i] + "</th>";
+            }
+            str += "</tr>";
+            table.innerHTML = str;
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <header id="header"></header>
+    <div id="section">
+        <table id="calenderSection">
+        </table>
+    </div>
+    <script type="text/javascript">
+        // 출력할 곳 가져오기
+        calendarMake(today);
+    </script>
+</body>
+
+</html>

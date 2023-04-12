@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function calcVal() {
+			var val = examForm.calcValue.value;
+			var spanView = document.getElementById("result");
+			spanView.innerHTML = (val * 12900) * 0.9;
+		}
+	</script>
+</head>
+
+<body>
+	<form action="" name="examForm">
+		수량 : <input type="text" name="calcValue" onkeyup="calcVal()" />
+		<span id="result"></span>
+	</form>
+</body>
+
+</html>

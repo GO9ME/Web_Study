@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		function selectTest(){
+			// 선택한 항목에 대한 index 반환 - selectedIndex
+			index = selfmt.tel.selectedIndex;
+			// 텍스트 가져오기
+			// selfmt.tel.option[index]
+			//value 값 -> option 태그 내부에 value 속성으로 정의함
+			alert("value=>"+ selfmt.tel.options[index].value);
+			
+			//text 값 -> 실제 select에 보여지는 문자열 <option></option>사이의 문자열
+			alert("text=>"+ selfmt.tel.options[index].text);
+		}
+	</script>
+</head>
+<body>
+	<form name="selfmt">
+		<select name="tel" onchange="selectTest()">
+			<option value="default">핸드폰식별번호</option>
+			<option value="공일공">010</option>
+			<option value="011">011</option>
+			<option value="016">016</option>
+			<option value="017">017</option>
+			<option value="018">018</option>
+			<option value="019">019</option>
+		</select>
+	</form>
+</body>
+</html>
