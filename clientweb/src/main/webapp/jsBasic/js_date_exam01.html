@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var date = new Date();
+        var day = date.getDay();
+        var ampm = date.getHours() < 12 ? "am" : "pm";
+
+        console.log(ampm);
+        drawImg(day, ampm);
+
+        function drawImg(day, ampm) {
+            document.write("<img src='../images/jang" + (day + 1) + ".jpg'/>")
+            if (ampm == "am") {
+                document.body.style.backgroundColor = "green";
+            } else {
+                document.body.style.backgroundColor = "red";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

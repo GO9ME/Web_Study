@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>1. 함수의 표현식</h1>
+    <script type="text/javascript">
+        //test1(100);
+        //myfunction1(100);
+        var myfunction1 = function test1(num) {
+            if (num > 90) {
+                console.log("합격");
+            } else {
+                console.log("불합격");
+            }
+        }
+        myfunction1(100);
+    </script>
+    <h2>2. 익명함수와 표현식</h2>
+    <h2>3. 즉시 실행함수 테스트하기</h2>
+    <script type="text/javascript">
+        var myfunc2 = function (num) {
+            if (num > 90) {
+                console.log("합격");
+            } else {
+                console.log("불합격");
+            }
+        }
+        myfunc2(200);
+        myfunc2(2000);
+
+        (function(){
+            alert("즉시실행");
+        }())
+
+        function test(){
+            console.log("test");
+        }
+        test();
+        document.write("test<br/>")
+    </script>
+</body>
+
+</html>

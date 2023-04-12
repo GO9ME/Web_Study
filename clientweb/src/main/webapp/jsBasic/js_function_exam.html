@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        function printGugu() {
+            dan = 7;
+            document.write("<table border='1'>");
+            for (i = 1; i <= 9; i++) {
+                document.write("<tr>");
+                document.write("<td><h3>" + dan + "*" + i + "=" + (dan * i) + "</h3></td>");
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+        function getSum(a, b) {
+            var sum = 0;
+            for (i = a; i <= b; i++) {
+                sum = sum + i
+            }
+            return sum;
+        }
+
+        function calc(num1, num2, opr) {
+            var result = 0
+            switch (opr) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        printGugu();
+        sum = getSum(10,200);
+        document.write("<h1>getSum:" + sum + "<h1>");
+        calcResult = calc(10,200,"+");
+        document.write("<h1>calcResult +: " + calcResult + "<h1>");
+        calcResult = calc(200,300,"-");
+        document.write("<h1>calcResult -: " + calcResult + "<h1>");
+        calcResult = calc(200,4,"*");
+        document.write("<h1>calcResult *: " + calcResult + "<h1>");
+        calcResult = calc(200,18,"/");
+        document.write("<h1>calcResult /: " + calcResult + "<h1>");
+
+
+    </script>
+</body>
+
+</html>

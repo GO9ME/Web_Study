@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        var x = 10;
+
+        function test() {
+            console.log("x값 : " + x);
+            console.log("y값 : " + y); // 변수 선언 하기전에 사용
+            let y = 20;
+        }
+        test();
+    </script>
+</head>
+
+<body>
+    <h1>함수와 변수의 호이스팅</h1>
+    <script type="text/javascript">
+        test(1000);
+
+        function test(num) {
+            if (num > 90) {
+                console.log("합격");
+            } else {
+                console.log("다시작업");
+            }
+        }
+    </script>
+</body>
+
+</html>

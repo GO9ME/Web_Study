@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var today = new Date();
+        document.write(today+"<br/>");
+        document.write(today.toString()+"<br/>");
+        var str = today.getFullYear() + "년";
+        str += today.getFullYear + "년";
+        str += today.getMonth + "월";
+        str += today.getDate + "일";
+        str += today.getHours + "시";
+        str += today.getMinutes + "분";
+        str += today.getSeconds + "초";
+        document.write("<h2>"+str+"</h2>");
+    
+        var day = today.getDate();
+        document.write("<h2>요일번호:"+day+"</h2>");
+        
+        var newday = new Date();
+        newday.setMonth(7);//8월세팅
+        newday.setDate(1);//1일세팅
+        document.write("<h2>"+newday+"</h2>");
+        document.bgColor = "yellow";
+    </script>
+</body>
+</html>

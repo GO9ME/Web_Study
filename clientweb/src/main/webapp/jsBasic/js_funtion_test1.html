@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 1. 리턴값이 없고 매개변수가 없는 함수
+        function test1() {
+            num1 = 100;
+            num2 = 200;
+            document.write("<h1>test1함수:" + (num1 + num2) + "<h1>");
+        }
+        // 2. 리턴값이 없고 매개변수가 있는 함수
+        function test2(num1, num2) {
+            document.write("<h1>test2함수:" + (num1 + num2) + "<h1>");
+        }
+        // 3. 리턴값이 있고 매개변수가 있는 함수
+        function test3(num1, num2) {
+            return num1 + num2;
+        }
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 1. 매개 변수 없고 리턴값이 없는 함수의 호출
+        document.write("<hr/>")
+        document.write("<h1>시작<h1/>")
+        test1();
+        // 2. 매개 변ㅅ두 없고 리턴값이 없는 함수의 호출
+        test2(100, 200);
+        test2(300, 500);
+        // 3. 매개변수가 있고 리턴값이 있는 함수
+        // -> 리턴값이 있는 경웨 변수에 리턴값을 할당하거나 다른 함수의 매개변수로 전달할 수 있음
+        alert(test3(200,1000));
+        result = test3(1000,2000);
+        document.write("<h1>test3함수:" + result + "<h1>");
+    </script>
+
+</body>
+
+</html>

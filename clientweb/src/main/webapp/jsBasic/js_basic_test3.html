@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #head{
+            font-size : 20pt;
+            color : blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "head">자바스크립트</h1>
+    <p id="text"> 텍스트 클릭하기</p>
+    <script type="text/javascript">
+        var headElement = document.querySelector("head");
+        headElement.onclick = function(){
+            headElement.style.color = "red";
+        }
+    </script>
+    
+</body>
+</html>
