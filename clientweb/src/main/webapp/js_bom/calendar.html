@@ -16,7 +16,7 @@
         table {
             font-size: 15pt;
             margin: auto;
-            width: 70%;
+            width: 30%;
         }
 
         th {
@@ -26,48 +26,70 @@
         td {
             background-color: yellow;
         }
+
+        #today {
+            background-color: pink;
+        }
     </style>
     <script type="text/javascript">
         // html 문자열
-        const weekday = ["일","월", "화", "수", "목", "금", "토"];
+        const weekday = ["일", "월", "화", "수", "목", "금", "토"];
 
         //날짜 
         var today = new Date();
         const year = today.getFullYear();
-        const month = today.getMonth()+1;
+        const month = today.getMonth() + 1;
         const date = today.getDate();
-
-
-
-
     </script>
 </head>
 
 <body>
     <header id="header"></header>
+    
     <div id="section">
-        <table id="calenderSection">
-        </table>
+        <table id="calenderSection"></table>
     </div>
+
+    <div>
+        
+    </div>
+
+    
+
+
+
     <script type="text/javascript">
         // 출력할 곳 가져오기
-        calendarMake(year,month);
 
+        //calendarMake(year, month);
+        calendarMake(2020, 2);
 
         function calendarMake(y, m) {
             var str = "";
-            var lastDate = new Date(y, m, 0);
-            console.log(lastDate.getFullYear());
-            console.log(lastDate.getDate());
-            console.log(lastDate.getDay());
-            var arr = new Array(lastDate.getDate);
 
+            // 해당 달의 객체 생성
+            var lastDate = new Date(y, m, 0);
+
+            numday = lastDate.getDate(); // 해당 달의 일수
+
+            // 첫날 세팅
+            lastDate.setDate(1);
+            // 첫날 요일 추출
+            var firstDayNum = lastDate.getDay();
+
+            if ((m == 2) && (((y % 4 == 0) && (y % 100 != 0)) || y % 400 == 0)) {
+                //0월 부터 시작하므로 배열의 첫번째는 2월-> 윤달 계산 4년마다 29일, 100년는 28일, 400년 째는 29일
+                numday = 29;
+            }
+
+            // 헤더
             var header = document.getElementById("header");
             str += "<h2>" + y + "년" + m + "월" + "</h2>";
-
             header.innerHTML = str;
+            // 문자열 한번 초기화
             str = "";
 
+            // 요일 표시 
             var table = document.getElementById("calenderSection");
             str += "<tr>";
             for (var i = 0; i < weekday.length; i++) {
@@ -75,7 +97,32 @@
             }
             str += "</tr>";
 
-            
+            // 테이블 배열 0 번
+            var col = 0;
+            // 날짜 배열
+            str += "<tr align=center>";
+            for (i = 0; i < firstDayNum; i++) { // 첫번째 날짜의 숫자 요일을 구해서 그전까지는 빈칸 처리  
+                str += "<td></td>"
+                col++;
+            }
+
+            for (i = 1; i <= numday; i++) { //해당 월의 달력 출력  
+                if (y == year && m == month && i == date) { // 오늘이면 today id 부여
+                    str += "<td id='today'>" + i + "</td>"
+                }
+                else {
+                    str += "<td>" + i + "</td>";
+                }
+                col++;
+                if (col == 7) {  // 7칸차면 줄 끝 0으로 초기화
+                    str += "</tr>";
+                    str += "<tr align=center>";
+                    col = 0;
+                }
+            }
+            str += "</tr>";
+
+            // html 뿌리기
             table.innerHTML = str;
         }
     </script>
