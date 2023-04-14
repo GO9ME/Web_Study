@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+	<style type="text/css">
+		body {
+			font: 14px 굴림체;
+			text-align: center;
+		}
+
+		.main {
+			margin-top: 15px;
+			width: 700px;
+		}
+
+		div.heading {
+			font: 20px HY견고딕;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		div.subheading {
+			font: 15px HY견고딕;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+
+		.img {
+			float: left;
+			width: 350px;
+
+		}
+
+		div.field {
+
+			margin-bottom: 5px;
+			text-align: right;
+		}
+
+		form {
+			padding-left: 0px;
+
+		}
+	</style>
+	<script type="text/javascript">
+		function select() {
+			index = orderform.name.selectedIndex;
+			text = orderform.name.options[index].text;
+			imgSet(text);
+
+		}
+		function order() {
+			totalPrice = 100000;
+
+			bbq = orderform.bbq.value;
+			totalPrice += bbq * 10000;
+
+			blanket = orderform.blanket.value;
+			totalPrice += blanket * 10000;
+
+			if (blanket != "") {
+				count = parseInt(blanket) + 2;
+				orderform.count.value = count;
+				totalPrice += count * 20000;
+			}
+
+			orderform.subtotal.value = totalPrice;
+			orderform.tax.value = totalPrice * 0.1;
+			orderform.total.value = totalPrice * 1.1;
+		}
+
+
+		function imgSet(text) {
+			imgView = document.getElementsByClassName("img");
+			str = "<img src='../images/";
+			switch (text) {
+				case "루비":
+					str += "pension.jpg";
+					break;
+				case "에메랄드":
+					str += "emerald1.jpg";
+					break;
+				case "사파이어":
+					str += "sapphire1.jpg";
+					break;
+				case "스카이1호":
+					str += "sky01.jpg";
+					break;
+				case "별님실":
+					str += "star1.jpg";
+					break;
+				default:
+
+					break;
+			}
+			str += "'' width='300' height='300' />";
+
+			imgView[0].innerHTML = str;
+		}
+
+	</script>
+</head>
+
+<body>
+	<div class="main">
+		<div class="heading">펜션예약사항</div>
+		<div class="subheading">비수기 세일입니다. 펜션의 모든 방을 10만원에 단, 모든 방은
+			2인용입니다.!!</div>
+		<div class="img">
+			<img src="../images/pension.jpg" width="300" height="300" />
+		</div>
+		<form name="orderform" action="" method="post">
+			<div class="field">
+				객실명: <select name="name" id="name" onchange="select()">
+					<option>루비</option>
+					<option>에메랄드</option>
+					<option>사파이어</option>
+					<option>스카이1호</option>
+					<option>별님실</option>
+				</select>
+			</div>
+			<div class="field">
+				바베큐시설이용:
+				<input type="text" id="bbq" name="bbq" value="" onchange="order()" />
+			</div>
+			<div class="field">
+				이불추가: <input type="text" id="blanket" name="blanket" value="" onchange="order()" />
+			</div>
+			<div class="field">
+				인원수: <input type="text" id="count" name="count" value="" onchange="order()" />
+			</div>
+			<div class="field">
+				금액: <input type="text" id="subtotal" name="subtotal" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				부가세: <input type="text" id="tax" name="tax" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				총금액: <input type="text" id="total" name="total" value="" readonly="readonly" />
+			</div>
+			<div class="field">
+				<input type="button" value="Place Order" onclick="exec(this.form)" />
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>

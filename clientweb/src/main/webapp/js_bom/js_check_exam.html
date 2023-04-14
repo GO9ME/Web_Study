@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function allcheck() {
+			var chkVal = myform.allchk.checked;
+			var mychecklist = myform.prd;
+			for (i = 0; i < mychecklist.length; i++) {
+				mychecklist[i].checked = chkVal;
+			}
+			ckFunc();
+		}
+		function ckFunc() {
+
+			var mychecklist = myform.prd;
+			var eachPriceView = document.getElementsByClassName("calcprice");
+			var totalPriceView = document.getElementById("totalprice");
+
+			var countlist = myform.count;
+			var pricelist = myform.price;
+			var str = "";
+			var totalPrice = 0;
+			for (i = 0; i < mychecklist.length; i++) {
+				if (mychecklist[i].checked) {
+					var count = countlist[i].value;
+					var price = pricelist[i].value;
+					var eachPrice = count * price;
+					totalPrice += eachPrice;
+					eachPriceView[i].innerHTML = eachPrice;
+				} else {
+					eachPriceView[i].innerHTML = 0;
+					myform.allchk.checked = false;
+				}
+			}
+			totalPriceView.innerHTML = totalPrice;
+			console.log(str);
+		}
+
+	</script>
+</head>
+
+<body>
+	<form name="myform">
+		<table border="1" width="800">
+			<tr>
+				<td><input type="checkbox" name="allchk" onclick="allcheck()"/>항목명</td>
+				<td>상품정보</td>
+				<td>수량</td>
+				<td>판매가</td>
+				<td>구매예정가</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick="ckFunc()" />완도미역</td>
+				<td><img src="../images/pro1.jpg" /></td>
+				<td><input type="text" name="count" value="1" /></td>
+				<td>
+					<input type="text" name="price" value="6900" /><span>원</span>
+				</td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="prd" onclick="ckFunc()" />스카트 빨아쓰는 휴지</td>
+				<td><img src="../images/pro2.jpg" /></td>
+				<td><input type="text" name="count" value="1" /></td>
+				<td><input type="text" name="price" value="7800" /><span>원</span></td>
+				<td><span class="calcprice"></span><span>원</span></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><span id="totalprice"></span><span>원</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

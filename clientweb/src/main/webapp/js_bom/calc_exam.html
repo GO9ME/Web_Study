@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title> New Document </title>
-<script type="text/javascript">
-</script>
+	<meta charset="UTF-8">
+	<title> New Document </title>
+	<script type="text/javascript">
+		var num = 0;
+		const symbol = ["+", "-", "*", "/", "%"];
+		var str = "";
+		function button_click(a) {
+			str += a;
+			myform.mytext.value = str;
+		}
+
+
+
+		function compute() {
+			var regex = /[^0-9]/g;
+			var result = str.replace(regex, ",");
+			var opr = str.match(regex);
+			console.log(result);
+			var secNum = parseFloat(myform.mytext.value);
+			var result;
+			switch (symbol) {
+				case '+': result = Number(num) + Number(secNum);
+					myform.mytext.value = result;
+					break;
+				case '-': result = Number(num) - Number(secNum);
+					myform.mytext.value = result;
+					break;
+				case '*': result = Number(num) * Number(secNum);
+					myform.mytext.value = result;
+					break;
+				case '/': result = Number(num) / Number(secNum);
+					myform.mytext.value = result;
+					break;
+				case '%': result = Number(num) % Number(secNum);
+					myform.mytext.value = result;
+					break;
+			}
+		}
+
+		function clear_del() {
+			str = "";
+			myform.mytext.value = str;
+			num = 0;
+		}
+	</script>
 </HEAD>
 
 <BODY>
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
 	<h1>계산기 활용 예</h1>
 	<form name="myform">
 		<table border="1">
@@ -42,10 +84,11 @@
 				<td><input type="button" value="   %  " onclick="button_click('%')"></td>
 			</tr>
 			<tr>
-				<td  colspan="2"><input type="button" value="  계산하기  " onclick="compute()"></td>
-				<td  colspan="2"><input type="button" value="   지우기    " onclick="clear_del()"></td>
+				<td colspan="2"><input type="button" value="  계산하기  " onclick="compute()"></td>
+				<td colspan="2"><input type="button" value="   지우기    " onclick="clear_del()"></td>
 			</tr>
 		</table>
 	</form>
 </BODY>
+
 </HTML>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script tpye="text/javascript">
+        function idCheck() {
+            var str = idForm.id.value;
+            var len = str.trim().length;
+            var idCheckResult = document.getElementById("idCheckResult");
+            var resultStr = "";
+            if (len < 4) {
+                idCheckResult.style.color = "red";
+                resultStr = "4글자 이상의 글자를 입력하세요.";
+            } else {
+                if (str == "java") {
+                    idCheckResult.style.color = "red";
+                    resultStr = "이미 사용중인 아이디 입니다.";
+                } else {
+                    idCheckResult.style.color = "green";
+                    resultStr = "사용 가능한 아이디 입니다.";
+                }
+            }
+            idCheckResult.innerHTML = resultStr;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>티몬 회원가입</h2>
+    <h4>필수항목</h4>
+    <form action="" name="idForm">
+        아이디 : <input type="text" name="id" onkeyup="idCheck()">
+        <br>
+        <span id="idCheckResult"></span>
+    </form>
+
+</body>
+
+</html>
