@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script defer type="text/javascript"
+	src="/clientweb/common/js/domtest.js"
+></script>
+</head>
+<body>
+	<div class="mybox">box</div>
+	<div id="mydiv">box</div>
+
+	<div class="items">java</div>
+	<div class="items">javascript</div>
+	<div class="items">spring</div>
+	<div class="items">springboot</div>
+	<script type="text/javascript">
+		console.log("********************************")
+		var items = document.querySelectorAll(".items");
+		console.log(items.length);
+		// NodeList의 모든 Node에 반복작업
+		// NodeList에서 하나씩 꺼낸 노드가 subjectdiv에 저장
+		// 배열로 관리되므로 index가 i변수에 저장
+		// 모든 매개 변수는 자바스크립트 엔진이 처리해준다
+		items.forEach(function(subjectdiv, i) {
+			console.log(subjectdiv.textContent + ":" + i)
+			console.log("값:"+ i);
+			subjectdiv.classList.add(`subject-${i+1}`);
+			console.log(`console${i}`);
+		})
+	</script>
+</body>
+</html>

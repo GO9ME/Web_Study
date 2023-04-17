@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" defer>
+		/*
+		1번부터 4번 버튼을 누르면 메시지가 출력될수 있도록 이벤트를 연결하기
+			1.	메시지는 아무메시지나 출력되도록 
+			2.	이벤트 핸들러 속성을 이용해서 연결하기
+			3.	4번 버튼은 callback의 형식으로 함수를 연결 
+				함수명	:	mycallback 
+			4.	1번부터 4번버튼까지 id정의
+
+		*/
+		window.onload = function () {
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var btn3 = document.getElementById("btn3");
+			var btn4 = document.getElementById("btn4");
+
+			btn1.addEventListener("click", function () {
+				alert("1번 버튼 클릭");
+			});
+			btn2.onclick = function () {
+				alert("2번 버튼 클릭");
+			};
+
+			btn3.onclick = function () {
+				alert("3번 버튼 클릭");
+			};
+
+			btn4.addEventListener("click", mycallback);
+		};
+
+		function mycallback() {
+			//alert("4번 버튼 클릭");
+			// 1. id가 myform인 객체 구하기
+			var myform = document.getElementById("myform");
+			console.log(myform);
+			// 2. myform객체의 자식노드를 구하기
+			var myformNodeList = myform.childNodes;
+			for (i = 0; i < myformNodeList.length; i++) {
+				// 3. 2번에서 구한 노드의 모든 자식노드 탐색하기(for문을 이용해서 탐색하기)
+				console.log(i + "번째 자식 노드 이름 " + myformNodeList[i].nodeName);
+				// 4. 3번에서 자식노드를 탐색하면서 노드이름과 id 속성값 출력하기
+				if (myformNodeList[i].nodeName != "#text") {
+					console.log(i + "번째 자식 노드 아이디 " + myformNodeList[i].getAttribute("id"));
+				}
+				console.log("#############################################3")
+			}
+
+
+		}
+
+
+	</script>
+</head>
+
+<body>
+	<form id="myform">
+		<input type="button" value="1번버튼" id="btn1" />
+		<input type="button" value="2번버튼" id="btn2" />
+		<input type="button" value="3번버튼" id="btn3" />
+		<input type="button" value="4번버튼" id="btn4" />
+	</form>
+
+
+</body>
+
+</html>
