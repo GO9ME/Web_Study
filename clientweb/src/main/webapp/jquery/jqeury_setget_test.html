@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style type="text/css">
+        /*p{
+            color : blue;
+            border : solid 1px red;
+        }*/
+    </style>
+
+
+</head>
+
+<body>
+    <p id="test">jQuery 값 설정하기</p>
+    <p>양식태그에서 발생하는 값, 문서의 값</p>
+    <div id="result"></div>
+    <div id="result2"></div>
+    <form action="">
+        <input type="number" name="" id="data1">
+        <input type="number" name="" id="data2">
+        <input type="button" value="값가져오기" id="btn">
+    </form>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#result").text("<h1>h1태그에 값 설정하기</h1>");
+            $("#test").css({ "color": "bllue", "border": "solid 1px red" })
+            $("p").hide(); // 실행되면 화면에 출력되지 않도록 설정
+            $("#data1").on("keyup", function () {
+                //id가 data1인 input에 값이 입력될 때 마다 호출
+                var myval = parseInt($("#data1").val()) + 1000; //getter
+                $("#result2").text(myval); // setter
+            });
+
+            $("#btn").on("click",function(){
+                var textVal = $("#result2").text();// getter
+                $("#data2").val(textVal); //setter
+            });
+        });
+    </script>
+</body>
+
+</html>
