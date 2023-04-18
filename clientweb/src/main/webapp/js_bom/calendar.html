@@ -18,7 +18,6 @@
             margin: auto;
             width: 30%;
         }
-
         th {
             background-color: orange;
         }
@@ -49,27 +48,14 @@
     <div id="section">
         <table id="calenderSection"></table>
     </div>
-
-    <div>
-
-    </div>
-
-
-
-
-
     <script type="text/javascript">
-        // 출력할 곳 가져오기
-
-        //calendarMake(year, month);
-        calendarMake(2020, 2);
+        calendarMake(year, month);
+        //calendarMake(2020, 2);
 
         function calendarMake(y, m) {
             var str = "";
-
             // 해당 달의 객체 생성
             var lastDate = new Date(y, m, 0);
-
             numday = lastDate.getDate(); // 해당 달의 일수
 
             // 첫날 세팅
