@@ -16,29 +16,17 @@ public class CalcServlet extends HttpServlet {
 
 		PrintWriter pw = resp.getWriter();
 		String str = "";
-		int result = 0;
 
 		int num1 = Integer.parseInt(req.getParameter("num1"));
 		String method = req.getParameter("method");
 		int num2 = Integer.parseInt(req.getParameter("num2"));
 		
-		switch(method) {
-		case "+":
-			result = num1 + num2;
-			break;
-		case "-":
-			result = num1 - num2;
-			break;
-		case "*":
-			result = num1 * num2;
-			break;
-		case "/":
-			result = num1 / num2;
-			break;
-		default : 
-			break;
-		}
-
+		//비즈니스 로직을 구현
+		//비즈니스 메소드 호출
+		Calc calc = new Calc();
+		int result = calc.calc(num1, method, num2);
+		
+		//클라이언트에 응답할 메시지를 생성
 		str += "<h1>계산 결과</h1>";
 		str += "<hr>";
 
@@ -50,5 +38,5 @@ public class CalcServlet extends HttpServlet {
 
 		pw.print(str);
 
-	}
+	}	
 }

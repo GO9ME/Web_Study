@@ -29,7 +29,7 @@
 
 	<servlet-mapping>
 		<servlet-name>second</servlet-name>
-		<url-pattern>/gugudan.html</url-pattern>
+		<url-pattern>/gugu/gugudan.html</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
@@ -71,6 +71,16 @@
 		<servlet-name>calc</servlet-name>
 		<url-pattern>/calc.do</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>user_login</servlet-name>
+		<servlet-class>kr.multicampus.user.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user_login</servlet-name>
+		<url-pattern>/user/login.do</url-pattern>
+	</servlet-mapping>
+
 
 
 	<welcome-file-list>
