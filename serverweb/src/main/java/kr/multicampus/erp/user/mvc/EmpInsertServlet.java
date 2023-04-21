@@ -1,16 +1,19 @@
-package kr.multicampus.erp.user;
+package kr.multicampus.erp.user.mvc;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "EmpInsertServlet", urlPatterns = {"/user/insert.do"})
+import kr.multicampus.erp.user.EmpDAO;
+import kr.multicampus.erp.user.EmpDAOImpl;
+import kr.multicampus.erp.user.EmpDTO;
+
+@WebServlet(name = "empInsert_mvc", urlPatterns = {"/mvc/insert.do"})
 public class EmpInsertServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,12 +49,15 @@ public class EmpInsertServlet extends HttpServlet{
 		req.setAttribute("insertuser", name);
 		//4. 요청재지정
 		if ( result > 0) { // 정상처리
-			view = "/serverweb/user_mvc/insertOK.jsp";
+			
+			view = "/user_mvc/insertOK.jsp";
 		} else { 
-			view = "/serverweb/user_mvc/insertFail.jsp";
+			view = "/user_mvc/insertFail.jsp";
 		}
 		
+		RequestDispatcher rd= req.getRequestDispatcher(view);
+		rd.forward(req, resp);
 		//응답 뷰가 클라이언트에게 response 되도록 재요청
-		resp.sendRedirect(view);
+		//resp.sendRedirect(view);
 	}
 }
