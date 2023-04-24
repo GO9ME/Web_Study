@@ -10,4 +10,7 @@ public interface EmpDAO {
 	// 전체사원을 조회하는 메소드
 	public ArrayList<EmpDTO> select();
 	public int delete(String id);
+	public EmpDTO getEmpInfo(String id);
+	
+	public EmpDTO login(String id, String pass);
 }

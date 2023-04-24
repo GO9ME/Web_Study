@@ -71,14 +71,68 @@ public class EmpDAOImpl implements EmpDAO {
 		int result = 0;
 		try {
 			con = DBUtil.getConnect();
-			ptmt =  con.prepareStatement(sql.toString());
+			ptmt = con.prepareStatement(sql.toString());
 			ptmt.setString(1, id);
 			result = ptmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBUtil.close(null, ptmt, con);
 		}
 		return result;
+	}
+
+	@Override
+	public EmpDTO getEmpInfo(String id) {
+		String sql = "select * from myemp where id = ?";
+		Connection con = null;
+		PreparedStatement ptmt = null;
+		ResultSet rs = null;
+		EmpDTO emp = null;
+		try {
+			con = DBUtil.getConnect();
+			ptmt = con.prepareStatement(sql);
+			ptmt.setString(1, id);
+			rs = ptmt.executeQuery();
+
+			if (rs.next()) {
+				emp = new EmpDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getString(7));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs, ptmt, con);
+		}
+		return emp;
+	}
+
+	@Override
+	public EmpDTO login(String id, String pass) {
+		String sql = "select * from myemp where id=? and pass=?";
+		Connection con = null;
+		PreparedStatement ptmt = null;
+		ResultSet rs = null;
+		EmpDTO emp = null;
+		try {
+			con = DBUtil.getConnect();
+			ptmt =  con.prepareStatement(sql);
+			ptmt.setString(1, id);
+			ptmt.setString(2, pass);
+			rs =  ptmt.executeQuery();
+			if(rs.next()) {
+				System.out.println("로그인 성공");
+				//로그인을 성공하면 조회된 로그인 사용자의 레코드를 VO로 만들어서 리턴
+				emp = new EmpDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getString(7));
+			} else {
+				System.out.println("로그인 실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs, ptmt, con);
+		}
+		return emp;
 	}
 }

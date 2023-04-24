@@ -32,11 +32,14 @@
 					int size = list.size();
 					for (int i = 0; i < size; i++) {
 					%>
+					
 					<tr>
 						<%
 						EmpDTO item = list.get(i);
 						%>
-						<td><%=item.getDeptno()%></td>
+						
+						<td><a href='/serverweb/mvc/read.do?id=<%=list.get(i).getId()%>'><%=item.getDeptno()%></a></td>
+						
 						<td><%=item.getName()%></td>
 						<td><%=item.getId()%></td>
 						<td><%=item.getPass()%></td>
@@ -44,10 +47,12 @@
 						<td><%=item.getPoint()%></td>
 						<td><%=item.getGrade()%></td>
 						<td>
-							<a href='/serverweb/mvc/delete.do?id="<%=list.get(i).getId()%>"'>삭제</a>
+						
+							<a href='/serverweb/mvc/delete.do?id=<%=list.get(i).getId()%>'>삭제</a>
 						</td>
 
 					</tr>
+					
 					<%
 					}
 					%>

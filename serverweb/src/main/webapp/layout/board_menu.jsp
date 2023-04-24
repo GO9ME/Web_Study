@@ -9,8 +9,8 @@
 <body>
 	<h3>부서관리(템플릿적용)</h3>
 	<div class="list-group">
-		<a href="#" class="list-group-item">게시글등록</a>
-		<a href="#" class="list-group-item">게시글보기</a>
+		<a href="/serverweb/board/board_write.jsp" class="list-group-item">게시글등록</a>
+		<a href="/serverweb/board/list.do" class="list-group-item">게시글보기</a>
 		<a href="#" class="list-group-item">Q&A</a>
 		<a href="#" class="list-group-item">공지사항</a>
 	</div>
