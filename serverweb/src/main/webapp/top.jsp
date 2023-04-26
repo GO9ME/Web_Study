@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<% EmpDTO user = ( EmpDTO) session.getAttribute("loginuser"); %>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -58,8 +58,7 @@
 						</a>
 					</li>
 					<%
-					EmpDTO emp = (EmpDTO) request.getAttribute("empdata");
-					if (emp == null) {
+					if (user == null) {
 					%>
 					<li>
 						<a href="/serverweb/user_mvc/login.jsp">
@@ -72,7 +71,7 @@
 					%>
 
 					<li>
-						<a href="/serverweb/user_mvc/login.jsp">
+						<a href="/serverweb/logout.do">
 							<span class="glyphicon glyphicon-log-out"></span>
 							Logout
 						</a>

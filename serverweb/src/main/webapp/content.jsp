@@ -15,10 +15,13 @@
 	</h4>
 	<h3>
 		<%
-		EmpDTO emp = (EmpDTO) request.getAttribute("empdata");
-		if ( emp != null){ %>
-			<%=emp.getName()%>님 환영합니다
-		<% }%>
+		EmpDTO user = (EmpDTO) session.getAttribute("loginuser");
+		if (user != null) {
+		%>
+		<%=user.getName()%>님 환영합니다
+		<%
+		}
+		%>
 	</h3>
 	<hr>
 	<div class="col-sm-10">

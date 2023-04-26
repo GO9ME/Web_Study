@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 		EmpDAO dao = new EmpDAOImpl();
 		emp = dao.getEmpInfo(id);
 		if (emp != null) {
+			
 			req.setAttribute("empdata", emp);
 		}
 
